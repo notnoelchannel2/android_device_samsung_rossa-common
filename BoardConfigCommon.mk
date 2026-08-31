@@ -23,12 +23,13 @@
 # inherit from qcom-common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/samsung/a3-common
+LOCAL_PATH := device/samsung/rossa-common
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+BLOCK_BASED_OTA := false
 
 # Arch
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -38,23 +39,17 @@ TARGET_CPU_CORTEX_A53 := true
 
 TARGET_SKIP_DEFAULT_LOCALE := true
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/a3-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/rossa-common/include
 
 # Kernel
-#TARGET_PREBUILT_KERNEL := device/samsung/a3ltexx/kernel
-KERNEL_TOOLCHAIN_PREFIX := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
-#TARGET_GCC_VERSION_EXP := 4.8
+KERNEL_TOOLCHAIN_PREFIX := /opt/toolchains/arm-eabi-4.7/bin/arm-eabi-
 TARGET_KERNEL_ARCH := arm
-#BOARD_DTBTOOL_ARG := -2
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
-#BOARD_KERNEL_OFFSET := 0x00008000
-#BOARD_RAMDISK_OFFSET := 0x01000000
-#BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
-BOARD_MKBOOTIMG_ARGS := --dt device/samsung/a3ltexx/dt.img --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 
+BOARD_MKBOOTIMG_ARGS := --dt device/samsung/rossa/dt.img --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 
 
 # Partition sizes
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -70,13 +65,13 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12775813120
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/a3-common/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/rossa-common/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Custom RIL class
-BOARD_RIL_CLASS := ../../../device/samsung/a3-common/ril/
+BOARD_RIL_CLASS := ../../../device/samsung/rossa-common/ril/
 USE_DEVICE_SPECIFIC_DATASERVICES := true
 
 # Fonts
@@ -134,10 +129,10 @@ TARGET_NEEDS_TEXT_RELOCATIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # CMHW
-BOARD_HARDWARE_CLASS += device/samsung/a3-common/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/rossa-common/cmhw
 
 # GPS
-TARGET_GPS_HAL_PATH := device/samsung/a3-common/gps
+TARGET_GPS_HAL_PATH := device/samsung/rossa-common/gps
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # Workaround to avoid issues with legacy liblights on QCOM platforms
@@ -168,10 +163,10 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/a3-common/sepolicy
+    device/samsung/rossa-common/sepolicy
 
 # Misc.
-TARGET_SYSTEM_PROP := device/samsung/a3-common/system.prop
+TARGET_SYSTEM_PROP := device/samsung/rossa-common/system.prop
 
 # TWRP
 # Display
@@ -189,11 +184,11 @@ TW_MAX_BRIGHTNESS := 255
 #MALLOC_IMPL := jemalloc
 
 # Keys
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/a3-common/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/rossa-common/recovery/recovery_keys.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Storage
-TARGET_RECOVERY_FSTAB := device/samsung/a3-common/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/samsung/rossa-common/rootdir/etc/fstab.qcom
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"

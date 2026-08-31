@@ -227,12 +227,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/Synaptics_RMI4_TouchPad_Sensor.idc:system/usr/idc/Synaptics_RMI4_TouchPad_Sensor.idc \
     $(LOCAL_PATH)/keylayout/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc
 
-# GPS config
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
-#    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf \
-#    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
-#    $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
