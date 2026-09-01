@@ -123,10 +123,6 @@ PRODUCT_PACKAGES += \
 	libssl \
 	libcrypto
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
